@@ -1,0 +1,15 @@
+void main ( void )
+{
+int x;
+int fact;
+x = 4;
+if ( x > 1 ) 
+  if ( x < 10 )
+    if ( x >= 3 )
+      if ( x <= 7 )
+        if ( x != 5 )
+          if ( x == 4 )
+            fact = fact * x;
+          else 
+            fact = ( ( a + b ) * ( c - d ) / ( b % 3 ) ) ^ 2 + ( a - d % ( c + 1 ) ) * 5 - ( ( a ^ 2 ) % b );
+}

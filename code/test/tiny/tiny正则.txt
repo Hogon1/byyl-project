@@ -1,0 +1,9 @@
+keywords=if|then|else|end|repeat|until|read|write
+operators=\+ | - | \* | / | ^ | % | < | <> | <= | >= | > | = | ; | := | \( | \)
+operators_name=PLUS | MINUS | MULTIPLY | DIVIDE | CARET | MOD | LT | NE | LTEQ | RTEQ | RT | EQ | SEMI | ASSIGN | LPAN | RPAN
+letter=[a-zA-Z]
+digit=[0-9]
+id=letter(letter|digit)*
+num=digit+
+comment={~}
+_final=operators|id|num|comment

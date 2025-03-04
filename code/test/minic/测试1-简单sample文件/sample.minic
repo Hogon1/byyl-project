@@ -1,0 +1,30 @@
+//Sample program
+//In MiniC language-computes factorial
+int x ;
+float fact ;
+double y ;
+int arry [ 100 ] ;
+void function ( double a )
+{
+  a = 3.14 ;
+  return ;
+}
+void main ( void )
+{
+  x = 2 ;
+  if ( x > 1 ) {
+    do {
+        a = a - 1;
+    } while ( a > 0 ) ;
+    while ( fact <= 100 )
+    {
+      fact = fact * x ;
+    }
+  }
+  else
+  {
+    fact = 100 ;
+  }
+  function ( y ) ; // function call
+  return ; //return void
+}

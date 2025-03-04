@@ -1,0 +1,69 @@
+S' -> program :\{ 0: -1 \}
+program -> definition-list :\{ 0: -1 \}
+definition-list -> definition-list definition :\{ 0: 1, 1 : 1 \}
+definition-list -> definition :\{ 0: -1 \}
+definition -> variable-definition :\{ 0: -1 \}
+definition -> function-definition :\{ 0: -1 \}
+variable-definition -> type-indicator ID ; :\{ 0: -1, 1 : 1 \}
+variable-definition -> type-indicator ID [ NUM ] ; :\{ 0: -1, 1 : 1, 3:1 \}
+type-indicator -> int :\{0 : -1\}
+type-indicator -> float :\{0 : -1\}
+type-indicator -> double :\{0 : -1\}
+type-indicator -> void :\{0 : -1\}
+function-definition -> type-indicator ID ( parameters ) compound-stmt :\{0:1, 1:-1, 3:1, 5:1\}
+parameters -> parameter-list :\{0 : -1\}
+parameters -> void :\{0 : -1\}
+parameter-list -> parameter-list , parameter :\{0:1, 2:1\}
+parameter-list -> parameter :\{0 : -1\}
+parameter -> type-indicator ID :\{0:-1, 1:1\}
+parameter -> type-indicator ID [ ] :\{0:-1, 1:1, 2:1\}
+compound-stmt -> { local-definitions statement-list } :\{1:1, 2:1\} 
+local-definitions -> local-definitions variable-definition :\{ 0 : 1, 1 : 1\}
+local-definitions -> @ :\{\}
+statement-list -> statement-list statement :\{ 0 : 1, 1 : 1\}
+statement-list -> @ :\{\}
+statement -> expression-stmt :\{0 : -1\}
+statement -> compound-stmt :\{0 : -1\}
+statement -> condition-stmt :\{0 : -1\}
+statement -> while-stmt :\{0 : -1\}
+statement -> dowhile-stmt :\{0 : -1\}
+statement -> return-stmt :\{0 : -1\}
+expression-stmt -> expression ; :\{0 : -1\}
+expression-stmt -> ; :\{\}
+condition-stmt -> if ( expression ) statement :\{0:-1, 2:1, 4:1\}
+condition-stmt -> if ( expression ) statement else statement :\{0:-1, 2:1, 4:1, 5:1, 6:1\}
+while-stmt -> while ( expression ) statement :\{0:-1, 2:1, 4:1\}
+dowhile-stmt -> do statement while ( expression ) :\{0:-1, 1:1, 2:1, 4:1\}
+return-stmt -> return ; :\{0:-1\}
+return-stmt -> return expression ; :\{0:-1, 1:1\} 
+expression -> variable = expression :\{0:1, 1:-1, 2:1\}
+expression -> simple-expression :\{0:-1\}
+variable -> ID :\{0:-1\}
+variable -> ID [ expression ] :\{0:-1, 1:1, 2:1\}
+simple-expression -> additive-expression relop additive-expression :\{0:1, 1:-1, 2:1\}
+simple-expression -> additive-expression :\{0:-1\}
+relop -> <= :\{0:-1\}
+relop -> < :\{0:-1\}
+relop -> > :\{0:-1\}
+relop -> >= :\{0:-1\}
+relop -> == :\{0:-1\}
+relop -> != :\{0:-1\}
+additive-expression -> additive-expression addop term :\{0:1, 1:-1, 2:1\}
+additive-expression -> term :\{0:-1\}
+addop -> + :\{0:-1\}
+addop -> - :\{0:-1\}
+term -> term mulop factor :\{0:1, 1:-1, 2:1\}
+term -> factor :\{0:-1\}
+mulop -> * :\{0:-1\}
+mulop -> / :\{0:-1\}
+mulop -> % :\{0:-1\}
+mulop -> ^ :\{0:-1\}
+factor -> ( expression ) :\{1:-1\}
+factor -> variable :\{0:-1\}
+factor -> call :\{0:-1\}
+factor -> NUM :\{0:-1\}
+call -> ID ( arguments ) :\{0:-1, 2:1\}
+arguments -> argument-list :\{0:-1\}
+arguments -> @ :\{\}
+argument-list -> argument-list , expression :\{0:1, 2:1\}
+argument-list -> expression :\{0:-1\}

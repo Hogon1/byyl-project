@@ -1,0 +1,9 @@
+keywords=else|if|int|float|double|return|void|do|while
+operators=\+ | - | \* | / | ^ | % | <  | <= | >= | > | ==| != | = | ; | , | \( | \) | \[ | \] | { | }
+operators_name=PLUS | MINUS | MULTIPLY | DIVIDE | CARET| MOD | LT| LTEQ | RTEQ | RT | EQ | NE | ASSIGN | SEMI | DOU | LLM | RLM | LMM | RMM | LBM | RBM
+letter=[a-zA-Z]
+digit=[0-9]
+id=(_|letter)(_|letter|digit)*
+num=digit+(.digit+)?
+comment=//~\n
+_final=operators|id|num|comment
